@@ -12,6 +12,10 @@ const PORT = 8000;
 const MONGOURL = "mongodb://127.0.0.1:27017/mydatabase";
 const SECRET_KEY = "b4e8ba64668c1b69b80d0c62b99047845654dc72a63f0f213dd071dcc410fbb5802c80c587f81c2ca85df2d2f7ff23292cc04a89e39d828241db5ac62ec27760";
 
+// Import models
+const Usermodel = require("./models/users");
+const Notesmodel = require("./models/notes");
+
 // Middleware setup
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -61,20 +65,6 @@ const authenticateToken = (req, res, next) => {
     next();
   });
 };
-
-// Models
-const Usermodel = mongoose.model("usercollection",mongoose.Schema({
-    username: String,
-    password: String,
-  })
-);
-
-const Notesmodel = mongoose.model("notescollection",mongoose.Schema({
-    username: String,
-    title: [String],
-    notes: [String],
-  })
-);
 
 // Routes
 app.get("/home", (req, res) => {
