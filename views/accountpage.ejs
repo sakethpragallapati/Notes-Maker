@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        /* Card styling */
+        .card {
+        position: relative; /* Enables positioning for the delete button */
+        min-width: 200px; /* Set a minimum width */
+        min-height: 220px; /* Set a minimum height */
+        max-width: 100%; /* Allow it to grow beyond the min-width */
+        max-height: 100%; /* Allow it to grow beyond the min-height */
+        width: auto; /* Allow width to auto adjust based on content */
+        height: auto; /* Allow height to auto adjust based on content */
+        --tw-bg-opacity: 1;
+        background-color: rgb(3 7 18 / var(--tw-bg-opacity, 1)) /* #030712 */;
+        border-radius: 12px;
+        padding: 16px;
+        margin: 8px;
+        color: white;
+        overflow: hidden;
+    }
+
+        /* Delete button styling */
+        .delete-link {
+            position: absolute; /* Places it relative to the card */
+            bottom: 8px; /* Pushes it to the bottom */
+            right: 8px; /* Pushes it to the right */
+            color: #3b82f6; /* Matches text-blue-500 */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .delete-link:hover {
+            text-decoration: underline;
+        }
+        .logoutbutton{
+            padding: 10px;
+            background-color: rgb(222, 78, 78);
+        }
+        .logoutbutton:hover{
+            background-color: rgb(194, 50, 50);
+        }
+        .flex {
+            display: flex; /* Ensure it's a flex container */
+
+        }
+    </style>
+</head>
+<body class="text-white bg-gray-900 m-0 p-0 h-screen overflow-visible">
+    <h1 class="text-3xl p-4">Welcome <%= username %></h1>
+    <form action="/logout" method="get">
+        <button type="submit" class="logoutbutton rounded-lg" style="position: absolute; top: 16px; right: 16px;">Logout</button>
+    </form>
+    <h1 class="p-4 text-2xl">Your Notes:</h1>
+    <div class="flex">
+        <% let i = 0; %>
+        <% titles.forEach(function (val) { %>
+            <div class="card">
+                <p style="margin-bottom: 2px; font-size: large; color: dodgerblue;"><%= val %></p>
+                <p><%= notes[i] %></p>
+                <% i = i + 1; %>
+                <a href="/delete/<%= encodeURIComponent(val) %>" class="delete-link">Delete</a>
+            </div>
+        <% }) %>
+    </div>
+    <form action="/create" method="get">
+        <button type="submit" class="bg-gray-700 p-4 rounded-xl hover:bg-gray-500" style="position: fixed; bottom: 16px; right: 16px;">+ Create</button>
+    </form>
+</body>
+</html>

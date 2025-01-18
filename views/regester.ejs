@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/output.css">
+
+</head>
+<body class="h-screen flex flex-col justify-center items-center bg-gray-900">
+    <a href="/home"><img src="/images/logo.png" alt="Logo" class="absolute top-0 right-0 p-4 size-20"></a>
+    <h1  class="text-white text-3xl my-2">Register</h1>
+    <div class="text-white bg-gray-950 p-20 rounded-2xl">
+        <form action="/regester" method="post">
+            <div class="py-2 mx-2 flex flex-col justify-center items-start">            
+                <label for="username" class="px-2">Username</label>
+                <input type="text" name="username" placeholder="username" class="rounded py-1 px-3 focus:outline-none focus:border-transparent text-black">
+            </div>
+            <div class="py-2 mx-2 flex flex-col justify-center items-start">
+                <label for="password" class="px-2">Password</label>
+                <input type="password" name="password" placeholder="password" class="rounded py-1 px-3 focus:outline-none focus:border-transparent  text-black">
+            </div>
+            <div class="flex justify-center p-0 m-1">
+                <button type="submit" class="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">Register</button>
+            </div>
+        </form>
+        <div class="flex justify-end">
+              <p class="px-1 my-1">Already have an account?</p>
+              <a href="/login" class="text-blue-500 hover:underline my-1">Sign-in</a>
+        </div>
+    </div>
+    <script>
+        <% if (typeof errorMessage !== 'undefined' && errorMessage.length > 0) { %>
+            alert("<%= errorMessage %>");
+        <% } %>
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create notes</title>
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="text-white bg-gray-900 flex justify-center items-center h-screen">
+    <a href="/home"><img src="/images/logo.png" alt="Logo" class="absolute top-0 right-0 p-4" style="width: 80px;"></a>
+    <form action="/create" method="post" class="space-y-6">
+        <h1 class="text-3xl">Create Note</h1>
+        <div>
+            <h1 class="mb-2 text-lg">Title</h1>
+            <input type="text" name="title" placeholder="Enter title" class="py-2 px-3 w-full max-w-4xl bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+        </div>
+        <div>
+            <h1 class="mb-2 text-lg">Notes</h1>
+            <textarea name="notes" rows="10" cols="70"placeholder="Enter Notes here" class="py-2 px-3 w-full max-w-4xl bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+            ></textarea>
+        </div>
+        <button type="submit" class="bg-blue-700 px-4 py-3 rounded-xl hover:bg-blue-900">Create</button>
+    </form>
+</body>
+</html>
