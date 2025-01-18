@@ -18,8 +18,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.set("view engine", "ejs");
 
-app.use(
-  session({
+app.use(session({
     secret: "yourSecretKey",
     resave: false,
     saveUninitialized: true,
@@ -28,15 +27,12 @@ app.use(
 );
 
 // Database Connection
-mongoose
-  .connect(MONGOURL)
-  .then(() => {
+mongoose.connect(MONGOURL).then(() => {
     console.log("Connected to Database...");
     app.listen(PORT, () => {
       console.log(`Connected to PORT: ${PORT}`);
     });
-  })
-  .catch((error) => console.error(`Database connection error: ${error}`));
+  }).catch((error) => console.error(`Database connection error: ${error}`));
 
 // Validators
 const validator1 = [
@@ -67,17 +63,13 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Models
-const Usermodel = mongoose.model(
-  "usercollection",
-  mongoose.Schema({
+const Usermodel = mongoose.model("usercollection",mongoose.Schema({
     username: String,
     password: String,
   })
 );
 
-const Notesmodel = mongoose.model(
-  "notescollection",
-  mongoose.Schema({
+const Notesmodel = mongoose.model("notescollection",mongoose.Schema({
     username: String,
     title: [String],
     notes: [String],
