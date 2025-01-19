@@ -44,7 +44,7 @@ Run the server using:
 node app.js
 ```
 
-The app will be available at `http://localhost:8000`.
+The app will be available at `http://localhost:8000/home`.
 
 ---
 
@@ -69,25 +69,29 @@ The app will be available at `http://localhost:8000`.
 
 ## Usage
 
-### 1. Registration
+### 1. Home Page
+- Navigate to `/home`.
+- This is the entry point of the application.
+
+### 2. Registration
 - Navigate to `/register`.
 - Enter a unique username and a password to create an account.
 
-### 2. Login
+### 3. Login
 - Navigate to `/login`.
 - Use your credentials to log in.
 - Upon successful login, you will be redirected to your account page.
 
-### 3. Creating Notes
+### 4. Creating Notes
 - Navigate to `/create` after logging in.
 - Enter a title and optional note content.
 - Submit to save your note.
 
-### 4. Deleting Notes
+### 5. Deleting Notes
 - Navigate to `/account`.
 - Click the delete button next to the note you wish to delete.
 
-### 5. Logout
+### 6. Logout
 - Navigate to `/logout` to end your session and clear cookies.
 
 ---
